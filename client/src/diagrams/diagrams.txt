@@ -1,0 +1,152 @@
+ExamSystem - Diagrams and Documentation
+========================================
+
+1. COMPONENTS HIERARCHY
+========================
+App
+├── Notification
+├── NavMenu
+├── pages/
+│   ├── Login
+│   ├── Register
+│   ├── teacher/
+│   │   ├── TeacherDashboard
+│   │   ├── CreateExam
+│   │   └── EditExam
+│   └── student/
+│       ├── StudentHome
+│       ├── TakeExam
+│       └── MyResults
+
+
+2. UML - CLASSES
+=================
++------------------+
+|     Logger       |
++------------------+
+| - logs: array    |
++------------------+
+| + info()         |
+| + warn()         |
+| + error()        |
+| + getLogs()      |
+| + clear()        |
++------------------+
+
++----------------------+
+|   StorageService     |
++----------------------+
+| - storage: object    |
++----------------------+
+| + save(key, data)    |
+| + load(key)          |
+| + remove(key)        |
+| + clear()            |
++----------------------+
+
++----------------------+
+|   NotifyService      |
++----------------------+
+| - listeners: array   |
++----------------------+
+| + subscribe()        |
+| + unsubscribe()      |
+| + notify()           |
+| + success()          |
+| + error()            |
+| + warning()          |
+| + info()             |
++----------------------+
+
++----------------------+
+|   ConfigService      |
++----------------------+
+| - config: object     |
++----------------------+
+| + get(key)           |
+| + set(key, value)    |
+| + getRole()          |
+| + getExamStatus()    |
+| + getStorageKeys()   |
++----------------------+
+
++----------------------+
+|   AuthService        |
++----------------------+
+| - currentUser        |
++----------------------+
+| + login()            |
+| + register()         |
+| + logout()           |
+| + getCurrentUser()   |
+| + isLoggedIn()       |
++----------------------+
+
++----------------------+
+|   ExamService        |
++----------------------+
+| (no private fields)  |
++----------------------+
+| + getAllExams()       |
+| + getExamById()      |
+| + getExamsByTeacher()|
+| + createExam()       |
+| + updateExam()       |
+| + changeStatus()     |
+| + addQuestion()      |
+| + submitExam()       |
+| + getSubmissions()   |
++----------------------+
+
+
+3. MAIN ENTITIES
+=================
+User {
+  id: number
+  name: string
+  email: string
+  password: string
+  role: "teacher" | "student"
+}
+
+Exam {
+  id: number
+  title: string
+  teacherId: number
+  status: "draft" | "active" | "closed"
+  duration: number
+  questions: Question[]
+}
+
+Question {
+  id: number
+  text: string
+  options: string[]
+  correct: number
+}
+
+Submission {
+  id: number
+  examId: number
+  studentId: number
+  answers: number[]
+  score: number
+  passed: boolean
+  submittedAt: string
+}
+
+
+4. USECASE DIAGRAM
+===================
+TEACHER:
+  - התחברות / הרשמה
+  - יצירת מבחן חדש
+  - עריכת מבחן קיים
+  - שינוי סטטוס מבחן (draft > active > closed)
+  - צפייה בכל המבחנים שלו
+
+STUDENT:
+  - התחברות / הרשמה
+  - צפייה במבחנים פעילים
+  - ביצוע מבחן
+  - צפייה בתוצאות שלו
