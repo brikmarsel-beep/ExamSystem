@@ -1,0 +1,105 @@
+ExamSystem - Features, Usecases, Users and Pages
+==================================================
+
+APPLICATION NAME: ExamSystem
+VERSION: 1.0.0
+
+DESCRIPTION:
+A web-based exam management system that allows teachers
+to create and manage exams, and students to take exams
+and view their results.
+
+
+USERS:
+=======
+1. TEACHER (מורה)
+   - Can login and register
+   - Can create new exams
+   - Can edit existing exams
+   - Can change exam status
+   - Can view all their exams
+
+2. STUDENT (סטודנט)
+   - Can login and register
+   - Can view active exams
+   - Can take exams
+   - Can view their results and scores
+
+
+FEATURES:
+==========
+1. AUTH - התחברות והרשמה
+   - Login with email and password
+   - Register with name, email, password and role
+   - Logout
+   - Session saved in localStorage
+
+2. TEACHER FEATURES - פיצ'רים למורה
+   - Teacher Dashboard: view all exams with status
+   - Create Exam: add title, duration and questions
+   - Edit Exam: update title and duration
+   - Change Status: draft > active > closed
+   - Each exam shows number of questions and duration
+
+3. STUDENT FEATURES - פיצ'רים לסטודנט
+   - Student Home: view all active exams
+   - Take Exam: answer multiple choice questions
+   - View Results: see score and pass/fail status
+   - My Results: view history of all submissions
+
+4. SERVICES - שירותים
+   - Logger: logs all actions with level and timestamp
+   - StorageService: saves and loads data from localStorage
+   - NotifyService: shows notifications to the user
+   - ConfigService: manages app configuration
+   - AuthService: manages user authentication
+   - ExamService: manages all exam operations
+
+5. NAVIGATION - ניווט
+   - NavMenu shows different options for teacher and student
+   - Teacher sees: dashboard, create exam, manage exams
+   - Student sees: available exams, my results
+
+
+PAGES:
+=======
+1. Login Page - דף התחברות
+   - Email input
+   - Password input
+   - Link to register page
+
+2. Register Page - דף הרשמה
+   - Name input
+   - Email input
+   - Password input
+   - Role selection (teacher/student)
+   - Link to login page
+
+3. Teacher Dashboard - דשבורד מורה
+   - List of all teacher exams
+   - Status badge for each exam
+   - Edit and status change buttons
+
+4. Create Exam Page - יצירת מבחן
+   - Exam title and duration inputs
+   - Add questions with multiple choice options
+   - Select correct answer
+   - Submit to create exam
+
+5. Edit Exam Page - עריכת מבחן
+   - Edit title and duration
+   - View existing questions
+   - Save changes
+
+6. Student Home Page - דף הבית לסטודנט
+   - List of all active exams
+   - Start exam button
+
+7. Take Exam Page - ביצוע מבחן
+   - All questions with multiple choice
+   - Submit exam
+   - View score and pass/fail result
+
+8. My Results Page - הציונים שלי
+   - List of all submitted exams
+   - Score and pass/fail for each
