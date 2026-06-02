@@ -4,6 +4,8 @@
   mockDelay: 500,
   maxExamDuration: 120,
   minPassScore: 60,
+  useServer: true,
+  serverUrl: "http://localhost:3001/api",
   roles: {
     TEACHER: "teacher",
     STUDENT: "student",
