@@ -1,0 +1,28 @@
+services:
+  gateway:
+    build: ./gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+      - exam-service
+    networks:
+      - examsystem-network
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "3001:3001"
+    networks:
+      - examsystem-network
+
+  exam-service:
+    build: ./exam-service
+    ports:
+      - "3002:3002"
+    networks:
+      - examsystem-network
+
+networks:
+  examsystem-network:
+    driver: bridge
